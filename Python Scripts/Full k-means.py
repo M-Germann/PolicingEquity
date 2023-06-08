@@ -32,6 +32,15 @@ for column in columns:
     for i, category in enumerate(encoder.classes_):
         print(f"{i}: {category}")
     print()
+    
+# Correlation Matrix
+corr_matrix = df[columns].corr()
+
+# Visualize correlation matrix
+plt.figure(figsize=(8, 6))
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Correlation Matrix')
+plt.show()
 
 # K-means Clustering
 kmeans = KMeans(n_clusters=4)
